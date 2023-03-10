@@ -39,4 +39,4 @@ git switch 브런치명
 git push origin 브런치명
 <p />
 
-이후 https://github.com/rhj1216-hochan06/cplussol  에 접속하면 pull& request 가능해짐. 해두면 merge는 프로젝트 책임자가 확인 후 진행
+이후 https://github.com/rhj1216-hochan06/cplussol  에 접속하면 compare & pull request 가능해짐. 해두면 merge는 프로젝트 책임자가 확인 후 진행
