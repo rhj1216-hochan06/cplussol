@@ -7,19 +7,20 @@ cplussol.com
 | | 상태관리 | @reduxjs/toolkit | 1.9.1, 8.0.5 |
 | | 개발환경 | npm+yarn | vsc 사용 |
 <p />
-#가비아에 홈페이지 등록 예정
+<h1>가비아에 홈페이지 등록 예정 <h1/> 
 
 <p />
-#MUI템플릿 
+<h1>MUI템플릿 <h1/> 
 https://mui.com/material-ui/getting-started/templates/
 <p />
 
-#참고 사이트 :
+<h1> 
+참고 사이트 :<h1/> 
 http://allbizsol.com/
 
 
 <p />
-#깃 사용예시 : 
+<h1>깃 사용예시 :<h1/> 
 <p />
 git add .
 <p />
