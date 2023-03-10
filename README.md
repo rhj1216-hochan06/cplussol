@@ -10,7 +10,7 @@ cplussol.com
 <h1>가비아에 홈페이지 등록 예정 </h1> 
 
 <p />
-<h1>제품들은 json 타입으로 관리할 예정 </h1> 
+제품들은 json 타입으로 관리할 예정 
 <p />
 <h1>MUI템플릿 </h1> 
 https://mui.com/material-ui/getting-started/templates/  <p />
