@@ -1,8 +1,3 @@
 export default function Header1() {
-
-    return(
-    <>
-    header
-    </>
-    )
+  return <>header</>;
 }
