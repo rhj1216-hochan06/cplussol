@@ -20,7 +20,7 @@ const App = () => {
           <Header1 />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="*" element={<RedirectPage />}></Route>
+            <Route path="*" element={<RedirectPage />} />
           </Routes>
           <Footer1 />
         </BrowserRouter>
