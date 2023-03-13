@@ -5,7 +5,7 @@ import Header1 from "./components/main/Header";
 import Box from "@mui/material/Box";
 import Footer1 from "./components/main/Footer";
 import RedirectPage from "./pages/RedirectPage";
-import MapPage from "./pages/MapPage"; 
+import MapPage from "./pages/MapPage";
 const App = () => {
   return (
     <div className="App">
