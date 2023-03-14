@@ -10,15 +10,27 @@ export default function MapPage() {
   return (
     <Box>
       <CssBaseline />
-      <Typography variant="h5" component="h2" gutterBottom>
+      <Typography variant="h4" component="h2" gutterBottom>
         <p />
-        찾아오시는 길
+        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+          <Grid item xs={4} sx={{ mx: 5 }}>
+            찾아오시는 길
+          </Grid>
+        </Grid>
       </Typography>
       <Box sx={{ justifyContent: "center", display: "flex" }}>
         <Map />
       </Box>
       <Typography variant="h6" component="h2" gutterBottom>
         <p />
+        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+          <Grid item xs={4} sx={{ mx: 5 }}>
+            서울특별시 금천구 가산디지털 1로30, 907호
+            (가산동,에이스하이엔드타워10)
+          </Grid>
+        </Grid>
+        <p />
+
         <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
           <Grid item xs={4} sx={{ mx: 5 }}>
             <PhoneIcon />
