@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Footer1 from "./components/main/Footer";
 import RedirectPage from "./pages/RedirectPage";
 import MapPage from "./pages/MapPage";
+import IntroductionPage from "./pages/IntroductionPage";
 const App = () => {
   return (
     <div className="App">
@@ -20,8 +21,9 @@ const App = () => {
           <Header1 />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="*" element={<RedirectPage />} />
+            <Route path="introduction" element={<IntroductionPage />} />
             <Route path="map" element={<MapPage />} />
+            <Route path="*" element={<RedirectPage />} />
           </Routes>
           <Footer1 />
         </BrowserRouter>
