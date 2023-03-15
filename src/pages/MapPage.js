@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import PhoneIcon from "@mui/icons-material/Phone";
 import FaxIcon from "@mui/icons-material/Fax";
 import { Grid } from "@mui/material";
+
 export default function MapPage() {
   return (
     <Box>
