@@ -13,6 +13,17 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import HomeIcon from "@mui/icons-material/Home";
 
+import PropTypes from "prop-types";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+
+import { Link } from "react-router-dom";
+
 const pages = ["홈 화면", "제품소개", "회사소개", "찾아오시는길"];
 const pages_menu = {
   홈화면: ["hi"],
@@ -22,7 +33,10 @@ const pages_menu = {
 };
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
+const drawerWidth = 240;
+const navItems = ["홈 화면", "제품소개", "회사소개", "찾아오시는길"];
+
+function ResponsiveAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,46 +55,70 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        회사 이름
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <HomeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          {/* <HomeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={handleDrawerToggle}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Box component="nav">
+              <Drawer
+                container={container}
+                variant="temporary"
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                ModalProps={{
+                  keepMounted: true, // Better open performance on mobile.
+                }}
+                sx={{
+                  display: { xs: "block", sm: "none" },
+                  "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                  },
+                }}
+              >
+                {drawer}
+              </Drawer>
+            </Box>
           </Box>
 
           {/*  */}
@@ -88,44 +126,52 @@ function ResponsiveAppBar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex" },
               justifyContent: "space-evenly",
             }}
           >
-            {pages.map((page) => (
-              <Box>
-                <Button
-                  key={page}
-                  onClick={handleOpenUserMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: "block", md: "none" },
-                  }}
-                ></Menu>
-              </Box>
-            ))}
+            {/* 홈 화면 버튼 */}
+            <Button
+              key="홈 화면"
+              onClick={handleOpenUserMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Typography fontSize={20}>홈 화면</Typography>
+            </Button>
+
+            {/* 제품 소개 버튼 */}
+            <Button
+              key="홈 화면"
+              onClick={handleOpenUserMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Typography fontSize={20}>제품 소개</Typography>
+            </Button>
+
+            {/* 회사 소개 버튼 */}
+            <Button
+              key="홈 화면"
+              onClick={handleOpenUserMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Typography fontSize={20}>회사 소개</Typography>
+            </Button>
+
+            {/* 찾아오시는 길 버튼 */}
+            <Button
+              key="홈 화면"
+              onClick={handleOpenUserMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <Link to="/map">
+                <Typography fontSize={20}>찾아오시는 길</Typography>
+              </Link>
+            </Button>
           </Box>
           {/*  */}
           {/*  */}
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -153,7 +199,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
