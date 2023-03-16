@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "category": "SFP",
+    "name": "PIXMA TR150",
+    "img": "/images/products/pixma-tr150.jpg",
+    "detail": "/images/productsdetail/pixma-tr150.jpg"
+  },
+  {
+    "id": "2",
+    "category": "SFP",
+    "name": "PIXMA TR150 + LK-72",
+    "img": "/images/products/pixma-tr150.jpg",
+    "detail": "/images/productsdetail/pixma-tr150.jpg"
+  }
+]
