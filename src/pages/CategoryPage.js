@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
-
+import Categoryall from "../components/category/categoryall";
 export default function CategoryPage() {
   const [pagestarter, setPagestarter] = useState([]);
   const { category } = useParams();
@@ -16,6 +16,7 @@ export default function CategoryPage() {
     });
   }, []);
 
+  //all,
   return (
     <Box>
       <CssBaseline />
@@ -26,7 +27,12 @@ export default function CategoryPage() {
             if (!pagestarter.starter) {
               return <Grid>no data</Grid>;
             } else {
-              return <Grid>{category}</Grid>;
+              if (category === "all")
+                return (
+                  <Grid>
+                    <Categoryall />
+                  </Grid>
+                );
             }
           })}
       </Container>
