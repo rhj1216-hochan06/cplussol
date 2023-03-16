@@ -8,6 +8,7 @@ import RedirectPage from "./pages/RedirectPage";
 import MapPage from "./pages/MapPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import DetailPage from "./pages/DetailPage";
+import CategoryPage from "./pages/CategoryPage";
 const App = () => {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="introduction" element={<IntroductionPage />} />
             <Route path="map" element={<MapPage />} />
             <Route path="/products/:id" element={<DetailPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="*" element={<RedirectPage />} />
           </Routes>
           <Footer1 />
