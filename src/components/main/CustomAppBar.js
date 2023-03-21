@@ -18,9 +18,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const drawerWidth = 240;
-const navItems = ["홈 화면", "제품소개", "회사소개", "찾아오시는길"];
+const navItems = ["홈 화면", "제품소개", "회사소개", "찾아오시는 길"];
 
 const StyledAppBar2 = styled(AppBar)`
   && {
@@ -54,6 +56,38 @@ const CustomAppBar = (props) => {
     setMobileOpen((prevState) => !prevState);
   };
 
+
+
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+
+
+  const navigate = useNavigate();
+  const navigateToMap = () => {
+    navigate("/map");
+  };
+  const navigateToIntroduction = () => {
+    navigate("/introduction");
+  };
+  const navigateToHome = () => {
+    navigate("/");
+  };
+  const navigateToCategory = () => {
+    navigate("/category/all");
+  };
+  const a = (props) => {
+    if (props === "홈 화면")
+      navigateToHome();
+    else if (props === '제품소개')
+      navigateToCategory();
+    else if (props === '회사소개')
+      navigateToIntroduction();
+    else
+      navigateToMap();
+  }
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -63,7 +97,7 @@ const CustomAppBar = (props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton sx={{ textAlign: "center" }} onClick={() => a(item)}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -71,10 +105,6 @@ const CustomAppBar = (props) => {
       </List>
     </Box>
   );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <>
       <AppBar position="static">
@@ -126,7 +156,7 @@ const CustomAppBar = (props) => {
               {/* 홈 화면 버튼 */}
               <Button
                 key="홈 화면"
-                onClick={handleOpenUserMenu}
+                onClick={navigateToHome}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 <Typography fontSize={20}>홈 화면</Typography>
@@ -134,8 +164,8 @@ const CustomAppBar = (props) => {
 
               {/* 제품 소개 버튼 */}
               <Button
-                key="홈 화면"
-                onClick={handleOpenUserMenu}
+                key="제품소개 화면"
+                onClick={navigateToCategory}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 <Typography fontSize={20}>제품 소개</Typography>
@@ -143,8 +173,8 @@ const CustomAppBar = (props) => {
 
               {/* 회사 소개 버튼 */}
               <Button
-                key="홈 화면"
-                onClick={handleOpenUserMenu}
+                key="회사소개 화면"
+                onClick={navigateToIntroduction}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 <Typography fontSize={20}>회사 소개</Typography>
@@ -152,13 +182,11 @@ const CustomAppBar = (props) => {
 
               {/* 찾아오시는 길 버튼 */}
               <Button
-                key="홈 화면"
-                onClick={handleOpenUserMenu}
+                key="맵 화면"
+                onClick={navigateToMap}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <Link to="/map">
-                  <Typography fontSize={20}>찾아오시는 길</Typography>
-                </Link>
+                <Typography fontSize={20}>찾아오시는 길</Typography>
               </Button>
             </Box>
           </Toolbar>

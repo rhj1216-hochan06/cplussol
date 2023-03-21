@@ -22,7 +22,7 @@ const MainCustomer = () => {
             display: "flex",
             maxHeight: "700px",
             maxWidth: "100vh",
-            mx: 9,
+            mx: 10,
           }}
         >
           <img src="/images/custmerlogo/custmerlogo.png" width="130%" />
