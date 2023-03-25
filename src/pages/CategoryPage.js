@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Categoryall from "../components/category/categoryall";
+
 export default function CategoryPage() {
   const [pagestarter, setPagestarter] = useState([]);
   const { category } = useParams();
@@ -21,7 +22,6 @@ export default function CategoryPage() {
     <Box>
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="large">
-        CategoryPage
         {pagestarter.starter &&
           pagestarter.starter.map(() => {
             if (!pagestarter.starter) {
