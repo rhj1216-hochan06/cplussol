@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+<head id='Head1'><title>PIXMA E4590</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=1024px' /><meta name='description' content='캐논코리아 주식회사' />
+<meta name='keywords' content='캐논코리아 주식회사,canon' />
+     <link rel='stylesheet' type='text/css' media='all' href='https://kr.canon/resources/assets/css/style.css'/>
+</head>
+<body>
+<div class="l-grid">
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.html_download02').click(function(){
+            $('.html_download02').hide();
+            var html = $('#tab01').html();
+            $('.html_download02').show();
+            html  = html.replace('','');
+            var title = $('.prd-tit .name').html();
+            var htmlWrap = `
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+<head id='Head1'><title>${title}</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=1024px' /><meta name='description' content='캐논코리아 주식회사' />
+<meta name='keywords' content='캐논코리아 주식회사,canon' />
+     <link rel='stylesheet' type='text/css' media='all' href='https://kr.canon/resources/assets/css/style.css'/>
+</head>
+<body>
+<div class="l-grid">
+${html}
+</div>
+</body>
+</html>`;
+              const blob = new Blob([htmlWrap], {type: 'text/html'})
+              const url = window.URL.createObjectURL(blob)
+              const a = document.createElement("a")
+              a.href = url
+              a.download = `${title}.html`
+              a.click()
+              a.remove()
+              window.URL.revokeObjectURL(url);
+        })
+    });
+
+
+</script>
+<button type="button" class="btn-white-sm line button-download html_download02" style="display: none;">HTML다운로드</button>
+<!-- 카메라 : 제품 특징 -->
+<div class="prd_detail prd_editor">
+    <div class="detail_point">
+        <div class="detail-top">
+                        <p><img src="http://image.kr.canon/namo/binary/20220713112025628_LD23SKQK.jpg" title="" alt="" style="vertical-align: baseline; border: 0px solid rgb(0, 0, 0); width: 100%;"></p>
+<p><img src="http://image.kr.canon/namo/binary/20220713112039590_VQW6TLC9.jpg" title="" alt="" style="vertical-align: baseline; border: 0px solid rgb(0, 0, 0); width: 100%;"></p>
+<p><img src="http://image.kr.canon/namo/binary/20220713112052373_FWIKOBX3.jpg" title="" alt="" style="vertical-align: baseline; border: 0px solid rgb(0, 0, 0); width: 100%;"></p>
+<p><img src="http://image.kr.canon/namo/binary/20220713112108366_LHHSE82Y.jpg" title="" alt="" style="vertical-align: baseline; border: 0px solid rgb(0, 0, 0); width: 100%;"></p>
+<p><br></p><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></div>
+                <div class="detail-main">
+        </div>
+
+        </div>
+
+    </div>
+
+<!-- //카메라 : 제품 특징 -->
+</div>
+</body>
+</html>

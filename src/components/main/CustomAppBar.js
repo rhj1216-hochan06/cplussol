@@ -20,7 +20,6 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 const drawerWidth = 240;
 const navItems = ["홈 화면", "제품소개", "회사소개", "찾아오시는 길"];
 
@@ -56,13 +55,8 @@ const CustomAppBar = (props) => {
     setMobileOpen((prevState) => !prevState);
   };
 
-
-
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
-
 
   const navigate = useNavigate();
   const navigateToMap = () => {
@@ -78,15 +72,11 @@ const CustomAppBar = (props) => {
     navigate("/category/all");
   };
   const a = (props) => {
-    if (props === "홈 화면")
-      navigateToHome();
-    else if (props === '제품소개')
-      navigateToCategory();
-    else if (props === '회사소개')
-      navigateToIntroduction();
-    else
-      navigateToMap();
-  }
+    if (props === "홈 화면") navigateToHome();
+    else if (props === "제품소개") navigateToCategory();
+    else if (props === "회사소개") navigateToIntroduction();
+    else navigateToMap();
+  };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -97,7 +87,10 @@ const CustomAppBar = (props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }} onClick={() => a(item)}>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={() => a(item)}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -192,7 +185,7 @@ const CustomAppBar = (props) => {
           </Toolbar>
         </Container>
       </AppBar>
-      <StyledAppBar2 position="static">
+      {/* <StyledAppBar2 position="static">
         <Tabs value={value2} onChange={handleChange2} aria-label="Main Tabs">
           <Tab label="환자 등록" icon={<ArrowBack />} />
           <Tab label="내원 등록" icon={<ArrowBack />} />
@@ -204,7 +197,7 @@ const CustomAppBar = (props) => {
           <Tab label="검사조회" icon={<Person />} />
           <Tab label="부적합결과입력" icon={<Person />} />
         </Tabs>
-      </StyledAppBar2>
+      </StyledAppBar2> */}
     </>
   );
 };
