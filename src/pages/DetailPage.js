@@ -45,6 +45,16 @@ export default function DetailPage() {
         __html:
           '<iframe src="/images/productsdetail/PIXMA G2915.html" width="100%" height="700px"></iframe>',
       };
+    else if (product.name === "MAXIFY GX6092")
+      return {
+        __html:
+          '<iframe src="/images/productsdetail/MAXIFY GX6092.html" width="100%" height="700px"></iframe>',
+      };
+    else if (product.name === "MAXIFY GX7092")
+      return {
+        __html:
+          '<iframe src="/images/productsdetail/MAXIFY GX7092.html" width="100%" height="700px"></iframe>',
+      };
   }
 
   return (
