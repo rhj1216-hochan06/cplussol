@@ -9,6 +9,7 @@ import MapPage from "./pages/MapPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import DetailPage from "./pages/DetailPage";
 import CategoryPage from "./pages/CategoryPage";
+
 const App = () => {
   return (
     <div className="App">
