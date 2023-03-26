@@ -18,7 +18,7 @@ export default function Footer1() {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-          My sticky footer can be found here.
+          제품 구매 문의는 전화상담을 이용해주세요.
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {"Copyright © "}

@@ -404,5 +404,47 @@
     "text3": "비즈니스 문서에 최적화된 대용량 4색 안료잉크 탑재",
     "text4": "대용량 적재 (최대 600매)",
     "text5": "단방향 양면스캔 지원"
+  },
+  {
+    "id": "30",
+    "category": "MiniPhotoPrinter",
+    "name": "SELPHY CP1500",
+    "img": "/images/products/SELPHY CP1500.jpg",
+    "detailtype": "html",
+    "detail": "",
+    "fromdate": "출시일 : 2022-09",
+    "text1": "선명하고 깨끗한 고품질 인화",
+    "text2": "보기 편한 3.5형 LCD 화면",
+    "text3": "9가지 다양한 출력 용지",
+    "text4": "다양한 디바이스 호환",
+    "text5": "멀티 다이렉트로 동시 접속 및 인쇄"
+  },
+  {
+    "id": "31",
+    "category": "MiniPhotoPrinter",
+    "name": "SELPHY SQUARE QX10",
+    "img": "/images/products/SELPHY SQUARE QX10.jpg",
+    "detailtype": "html",
+    "detail": "",
+    "fromdate": "출시일 : 2020-04",
+    "text1": "",
+    "text2": "",
+    "text3": "",
+    "text4": "",
+    "text5": ""
+  },
+  {
+    "id": "32",
+    "category": "MiniPhotoPrinter",
+    "name": "RP-108",
+    "img": "/images/products/RP-108.jpg",
+    "detailtype": "html",
+    "detail": "",
+    "fromdate": "출시일 : 2020-04",
+    "text1": "",
+    "text2": "",
+    "text3": "",
+    "text4": "",
+    "text5": ""
   }
 ]

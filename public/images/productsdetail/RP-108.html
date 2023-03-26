@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+<head id='Head1'><title>RP-108</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=1024px' /><meta name='description' content='캐논코리아 주식회사' />
+<meta name='keywords' content='캐논코리아 주식회사,canon' />
+     <link rel='stylesheet' type='text/css' media='all' href='https://kr.canon/resources/assets/css/style.css'/>
+</head>
+<body>
+<div class="l-grid">
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.html_download02').click(function(){
+            $('.html_download02').hide();
+            var html = $('#tab01').html();
+            $('.html_download02').show();
+            html  = html.replace('','');
+            var title = $('.prd-tit .name').html();
+            var htmlWrap = `
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+<head id='Head1'><title>${title}</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=1024px' /><meta name='description' content='캐논코리아 주식회사' />
+<meta name='keywords' content='캐논코리아 주식회사,canon' />
+     <link rel='stylesheet' type='text/css' media='all' href='https://kr.canon/resources/assets/css/style.css'/>
+</head>
+<body>
+<div class="l-grid">
+${html}
+</div>
+</body>
+</html>`;
+              const blob = new Blob([htmlWrap], {type: 'text/html'})
+              const url = window.URL.createObjectURL(blob)
+              const a = document.createElement("a")
+              a.href = url
+              a.download = `${title}.html`
+              a.click()
+              a.remove()
+              window.URL.revokeObjectURL(url);
+        })
+    });
+
+
+</script>
+<button type="button" class="btn-white-sm line button-download html_download02" style="display: none;">HTML다운로드</button>
+<!-- 카메라 : 제품 특징 -->
+<div class="prd_detail prd_editor">
+    <div class="detail_point">
+        <div class="detail-top">
+                        <p><br></p>
+<p><br></p>
+<div class="ipsW">
+<p><img alt="Color Ink Cassette/Paper Set RP-108" src="https://image.kr.canon/pds/editor/upload/editor/accessory/printer/rp108/rp_108_img01.jpg"></p>
+<p><img alt="캐논 포토프린터 SELPHY CP시리즈 (CP910용) 용지 &amp; 잉크 /Post Card 사이즈 (4X6) 108매" src="https://image.kr.canon/pds/editor/upload/editor/accessory/printer/rp108/rp_108_img02.jpg"></p>
+<p><img alt="1) 컬러 잉크 카트리지 2개와 Post Card 사이즈 (4X6) 인화지 108매가 들어있습니다.2) 108매 사진 인화 시, 별도의 잉크 카트리지 구매가 필요 없습니다.3) 가장 인기 있는 SELPHY CP910 의 대용량 용지 &amp; 잉크 입니다." src="https://image.kr.canon/pds/editor/upload/editor/accessory/printer/rp108/rp_108_img03.jpg"></p></div>
+<p><br></p>
+<p><img src="https://image.kr.canon/pds/editor/upload/product/accessory/KC-36IP/img01.jpg" title="" alt="d"></p><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></div>
+                <div class="detail-main">
+        </div>
+
+        </div>
+
+    </div>
+
+<!-- //카메라 : 제품 특징 -->
+</div>
+</body>
+</html>

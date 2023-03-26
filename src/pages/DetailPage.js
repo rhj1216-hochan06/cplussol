@@ -55,6 +55,21 @@ export default function DetailPage() {
         __html:
           '<iframe src="/images/productsdetail/MAXIFY GX7092.html" width="100%" height="700px"></iframe>',
       };
+    else if (product.name === "SELPHY CP1500")
+      return {
+        __html:
+          '<iframe src="/images/productsdetail/SELPHY CP1500.html" width="100%" height="700px"></iframe>',
+      };
+    else if (product.name === "SELPHY SQUARE QX10")
+      return {
+        __html:
+          '<iframe src="/images/productsdetail/SELPHY SQUARE QX10.html" width="100%" height="700px"></iframe>',
+      };
+    else if (product.name === "RP-108")
+      return {
+        __html:
+          '<iframe src="/images/productsdetail/SELPHY SQUARE QX10.html" width="100%" height="700px"></iframe>',
+      };
   }
 
   return (
