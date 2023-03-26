@@ -27,10 +27,9 @@ export default function CategoryPage() {
             if (!pagestarter.starter) {
               return <Grid>no data</Grid>;
             } else {
-              if (category === "all")
                 return (
                   <Grid>
-                    <Categoryall />
+                    <Categoryall category={category} />
                   </Grid>
                 );
             }
