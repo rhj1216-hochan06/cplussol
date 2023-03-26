@@ -1,10 +1,16 @@
 # cplussol
 cplussol.com 
 2023.03.10 ~ 03.26<p />
-현재 배포하고 연결중 <p />
+현재 배포하고 연결 <p />
 npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을 <p />
 [rhj1216-1216](https://rhj1216-1216.github.io) 에 업로드함
 이 주소를 가비아에서 포워딩함
+<p />
+
+<h1>수정해야하는 사항</h1><p />
+1.모바일버전 화면 구성<p />
+2.제품검색 기능<p />
+
 
 
 
@@ -15,14 +21,12 @@ npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을 <p /
 | | 상태관리 | @reduxjs/toolkit | 1.9.1, 8.0.5 |
 | | 개발환경 | npm+yarn | vsc 사용 |
 <p />
-<h1>가비아에 홈페이지 등록 예정 </h1> 
+<h1>가비아에 홈페이지 등록  </h1> 
 
 <p />
 제품들은 json 타입으로 관리할 예정 
 <p />
-<h1>MUI템플릿 </h1> 
-https://mui.com/material-ui/getting-started/templates/  <p />
-https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=templates-store  
+
 <p />
 
 <h1> 참고 사이트 :</h1> 
