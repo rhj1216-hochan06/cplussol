@@ -1,0 +1,21 @@
+[{
+    "category": "all",
+    "img":"/images/logo/all.png" 
+},
+    {
+    "category": "LBP",
+    "img":"/images/products/LBP720Cx.jpg" 
+},
+{
+    "category": "SFP",
+    "img":"/images/products/PIXMA G595.jpg" 
+},
+{
+    "category": "MFP",
+    "img":"/images/products/PIXMA MG3095W.jpg" 
+},
+{
+    "category": "MiniPhotoPrinter",
+    "img":"/images/products/SELPHY CP1500.jpg" 
+}
+]

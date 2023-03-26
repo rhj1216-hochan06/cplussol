@@ -9,17 +9,19 @@ import axios from "axios";
 import styles from "./Products.module.css";
 import { Link } from "react-router-dom";
 
-const Categoryall = () => {
+const Categoryall = (props) => {
   const [products, setProducts] = useState([]);
-  const [select, setSelect] = useState("start");
+  const [select, setSelect] = useState("all");
+  const { category } = props;
   useEffect(() => {
     axios.get("/data/products.json").then((datafile) => {
       setProducts(datafile.data);
       console.log(products);
+      setSelect(category);
     });
   }, []);
   const all = () => {
-    setSelect("start");
+    setSelect("all");
   };
   const LBP = () => {
     setSelect("LBP");
@@ -52,7 +54,7 @@ const Categoryall = () => {
               if (!product.id) {
                 return <Grid>no data</Grid>;
               } else {
-                if (select === "start" || product.category === select)
+                if (select === "all" || product.category === select)
                   return (
                     <div className={styles.product}>
                       <div class="item" data-aos="slide-up">
