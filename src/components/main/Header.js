@@ -12,7 +12,7 @@ import CustomAppBar from "./CustomAppBar.js";
 export default function Header1() {
   return (
     <Box>
-      <Box>
+      <Box sx={{ minWidth: "490px" }}>
         <Grid sx={{ justifyContent: "center", display: "flex", mx: 1 }}>
           <Grid item xs={1} sx={{ mx: 5 }}>
             <a href="/">
