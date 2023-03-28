@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   .flex_wrap {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -125,8 +125,8 @@
 
 @media (max-width: 768px) {
   .product_image {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 }
 
