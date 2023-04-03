@@ -14,7 +14,7 @@ export default function MapPage() {
       <Typography variant="h4" component="h2" gutterBottom>
         <p />
         <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
-          <Grid item xs={4} sx={{ mx: 5 }}>
+          <Grid item xs={4} sx={{ minWidth: "190px",mx: 5 }}>
             찾아오시는 길
           </Grid>
         </Grid>
@@ -24,7 +24,7 @@ export default function MapPage() {
       </Box>
       <Typography variant="h6" component="h2" gutterBottom>
         <p />
-        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+        <Grid sx={{ minWidth: "350px",justifyContent: "center", display: "flex", mx: 9 }}>
           <Grid item xs={4} sx={{ mx: 5 }}>
             서울특별시 금천구 가산디지털 1로30, 907호
             (가산동,에이스하이엔드타워10)
@@ -33,11 +33,11 @@ export default function MapPage() {
         <p />
 
         <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
-          <Grid item xs={4} sx={{ mx: 5 }}>
+          <Grid item xs={4} sx={{ minWidth: "140px", mx: 5 }}>
             <PhoneIcon />
             전화상담: 02-2622-8081~2
           </Grid>
-          <Grid item xs={4} sx={{ mx: 5 }}>
+          <Grid item xs={4} sx={{minWidth: "130px", mx: 5 }}>
             <FaxIcon />
             팩스번호: 02-2622-8083
           </Grid>
