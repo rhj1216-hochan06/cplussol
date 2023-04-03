@@ -5,7 +5,7 @@
   justify-content: flex-end;
 }
 
-.filter > p:not(:last-child)::after {
+.filter>p:not(:last-child)::after {
   content: "|";
   padding: 10px;
 }
@@ -119,21 +119,21 @@
   }
 
   .product_name span {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .product_image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 }
 
 @media (max-width: 360px) {
   .product_image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 
   .store span {

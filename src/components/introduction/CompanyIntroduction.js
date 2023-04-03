@@ -8,7 +8,10 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { minWidth, textAlign } from "@mui/system";
 import styles from "./CI.module.css";
+import { useTheme } from '@mui/material/styles';
+
 const CompanyIntroduction = () => {
+  const theme = useTheme();
   const itemData = [
     {
       img: "/images/intrduction/intrduction1.png",
@@ -37,23 +40,23 @@ const CompanyIntroduction = () => {
       <CssBaseline />
       <Container
         component="main"
-        sx={{ mt: 8, mb: 2}}
+        sx={{ mt: 8, mb: 2 }}
         maxWidth="lg"
       >
-        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 ,minWidth:'128px'}}>
+        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
           <Typography variant="h4" component="h1" gutterBottom>
             회사 소개
           </Typography>
         </Grid>
         <Typography variant="h5" component="h2" gutterBottom>
-          <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
-            <Grid item xs={4} sx={{ mx: 5 , minWidth:'180px'}}>
+          <Grid container direction={theme.breakpoints.up('sm') ? 'row' : 'column'} sx={{ justifyContent: "center", mx: 9 }}>
+            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
               최고의 서비스 응대
             </Grid>
-            <Grid item xs={4} sx={{ mx: 5 , minWidth:'180px'}}>
+            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
               최상의 품질 공급
             </Grid>
-            <Grid item xs={4} sx={{ mx: 5 , minWidth:'180px'}}>
+            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
               다양한 유통망 확충
             </Grid>
           </Grid>
