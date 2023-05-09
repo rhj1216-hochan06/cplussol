@@ -10,17 +10,21 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Grid } from "@mui/material";
 import axios from "axios";
-import styles from "../components/main/Products.module.css";
 import { Link } from "react-router-dom";
+import styles from "../components/main/Products.module.css";
+import { useMediaQuery } from '@mui/material';
 
 export default function Main() {
   const [products, setProducts] = useState([]);
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     axios.get("/data/category.json").then((datafile) => {
       setProducts(datafile.data);
       console.log(products);
+
     });
+
   }, []);
 
   return (
@@ -45,66 +49,130 @@ export default function Main() {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img
-                src="/images/main/사무실전경1.jpg"
-                width="300px"
-                height="300px"
-              />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img
-                src="/images/main/사무실전경.jpg"
-                width="300px"
-                height="300px"
-              />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img
-                src="/images/main/사무실내부1.jpg"
-                width="300px"
-                height="300px"
-              />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img
-                src="/images/main/사무실내부2.jpg"
-                width="300px"
-                height="300px"
-              />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img
-                src="/images/main/사무실내부3.jpg"
-                width="300px"
-                height="300px"
-              />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img src="/images/main/외관3.PNG" width="300px" height="300px" />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img src="/images/main/외관2.PNG" width="300px" height="300px" />
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid sx={{ justifyContent: "center", display: "flex" }}>
-              <img src="/images/main/창고.jpg" width="300px" height="300px" />
-            </Grid>
-          </SwiperSlide>
+          {isMobile ? <>
+            {/* 모바일일 때 */}
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실전경1.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실전경.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부1.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부2.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부3.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/외관3.PNG" width="300px" height="300px" />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/외관2.PNG" width="300px" height="300px" />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/창고.jpg" width="300px" height="300px" />
+              </Grid>
+            </SwiperSlide></> : <>
+            {/* PC환경 일 때 */}
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실전경1.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실전경.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부1.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부2.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/사무실내부3.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/외관3.PNG" width="600px" height="600px" />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/외관2.PNG" width="600px" height="600px" />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img src="/images/main/창고.jpg" width="600px" height="600px" />
+              </Grid>
+            </SwiperSlide></>}
+
         </Swiper>
       </Container>
       <main className={styles.flex_wrap}>
