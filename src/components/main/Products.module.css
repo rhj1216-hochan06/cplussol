@@ -64,8 +64,8 @@
 }
 
 .product_image {
-  width: 270px;
-  height: 270px;
+  width: 220px;
+  height: 220px;
   border-radius: 10px;
   margin-bottom: 5px;
 }
@@ -114,8 +114,8 @@
 
 @media (max-width: 968px) {
   .product_image {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
 
   .product_name span {
