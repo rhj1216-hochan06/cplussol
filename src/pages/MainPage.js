@@ -54,6 +54,24 @@ export default function Main() {
             <SwiperSlide>
               <Grid sx={{ justifyContent: "center", display: "flex" }}>
                 <img
+                  src="/images/main/우수파트너인증1.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/우수파트너인증2.jpg"
+                  width="300px"
+                  height="300px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
                   src="/images/main/사무실전경1.jpg"
                   width="300px"
                   height="300px"
@@ -115,7 +133,16 @@ export default function Main() {
             <SwiperSlide>
               <Grid sx={{ justifyContent: "center", display: "flex" }}>
                 <img
-                  src="/images/main/사무실전경1.jpg"
+                  src="/images/main/우수파트너인증1.jpg"
+                  width="600px"
+                  height="600px"
+                />
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid sx={{ justifyContent: "center", display: "flex" }}>
+                <img
+                  src="/images/main/우수파트너인증2.jpg"
                   width="600px"
                   height="600px"
                 />
