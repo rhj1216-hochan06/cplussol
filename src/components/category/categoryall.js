@@ -16,7 +16,7 @@ const Categoryall = (props) => {
   useEffect(() => {
     axios.get("/data/products.json").then((datafile) => {
       setProducts(datafile.data);
-      console.log(products);
+      //console.log(products);
       setSelect(category);
     });
   }, []);
