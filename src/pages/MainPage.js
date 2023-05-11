@@ -21,7 +21,7 @@ export default function Main() {
   useEffect(() => {
     axios.get("/data/category.json").then((datafile) => {
       setProducts(datafile.data);
-      console.log(products);
+      // console.log(products);
 
     });
 
