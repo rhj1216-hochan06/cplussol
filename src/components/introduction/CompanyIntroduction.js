@@ -9,8 +9,10 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { minWidth, textAlign } from "@mui/system";
 import styles from "./CI.module.css";
 import { useTheme } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 
 const CompanyIntroduction = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const theme = useTheme();
   const itemData = [
     {
@@ -37,19 +39,28 @@ const CompanyIntroduction = () => {
 
   return (
     <Box>
+
       <CssBaseline />
       <Container
         component="main"
         sx={{ mt: 8, mb: 2 }}
         maxWidth="lg"
       >
+        {isMobile ?
+          <>
+            {/* 모바일일 때 */}
+
+          </> : <>
+            {/* PC환경 일 때 */}
+
+          </>}
         <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
           <Typography variant="h4" component="h1" gutterBottom>
             회사 소개
           </Typography>
         </Grid>
         <Typography variant="h5" component="h2" gutterBottom>
-          <Grid container direction={theme.breakpoints.up('sm') ? 'row' : 'column'} sx={{ justifyContent: "center", mx: 9 }}>
+          <Grid container sx={{ justifyContent: "center", mx: 9 }}>
             <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
               최고의 서비스 응대
             </Grid>
