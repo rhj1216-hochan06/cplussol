@@ -8,11 +8,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Products.module.css";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from '@mui/material';
+
 
 const Categoryall = (props) => {
   const [products, setProducts] = useState([]);
   const [select, setSelect] = useState("all");
   const { category } = props;
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   useEffect(() => {
     axios.get("/data/products.json").then((datafile) => {
       setProducts(datafile.data);
@@ -41,13 +45,28 @@ const Categoryall = (props) => {
     <Box>
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="lg">
-        <div className={styles.filter}>
-          <p onClick={all}>전체보기</p>
-          <p onClick={LBP}>L B P</p>
-          <p onClick={SFP}>S F P</p>
-          <p onClick={MFP}>M F P</p>
-          <p onClick={MiniPhotoPrinter}>MiniPhotoPrinter</p>
-        </div>
+        {isMobile ? <>
+          {/* 모바일일 때 */}
+          <div className={styles.filter}>
+            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={all}>전체보기</p>
+            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={LBP}>L B P</p>
+            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={SFP}>S F P</p>
+            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MFP}>M F P</p>
+            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MiniPhotoPrinter}>Mini Photo
+              Printer</p>
+          </div>
+        </> : <>
+          {/* PC환경 일 때 */}
+          <div className={styles.filter}>
+            <p onClick={all}>전체보기</p>
+            <p onClick={LBP}>L B P</p>
+            <p onClick={SFP}>S F P</p>
+            <p onClick={MFP}>M F P</p>
+            <p onClick={MiniPhotoPrinter}>MiniPhotoPrinter</p>
+          </div>
+        </>}
+
+
         <main className={styles.flex_wrap}>
           {products &&
             products.map((product) => {
