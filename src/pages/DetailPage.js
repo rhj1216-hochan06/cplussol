@@ -7,11 +7,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Grid } from "@mui/material";
+import { useMediaQuery } from '@mui/material';
 
 export default function DetailPage() {
   const [pagestarter, setPagestarter] = useState([]);
   const [product, setProduct] = useState([]);
   const { id } = useParams();
+  const isMobile = useMediaQuery('(max-width: 768px)');
   useEffect(() => {
     setPagestarter({
       starter: [{ id: 1 }],
@@ -76,54 +78,109 @@ export default function DetailPage() {
     <Box>
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="large">
-        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
-          <Grid sx={{ maxWidth: "600px", maxHeight: "600px" }}>
-            <img src={product.img} alt="product" height="600px" width="600px" />
+        {isMobile ? <>
+          {/* 모바일일 때 */}
+          <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+            <Grid sx={{ maxWidth: "200px", maxHeight: "200px" }}>
+              <img src={product.img} alt="product" height="200px" width="200px" />
+            </Grid>
+            <Grid sx={{ minWidth: 350 }}>
+              <Typography sx={{ fontSize: '24px' }}>
+                제품명 : {product.name}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.fromdate}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.text1}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.text2}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.text3}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.text4}
+              </Typography>
+              <Typography sx={{ fontSize: '20px' }}>
+                {product.text5}
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid sx={{ minWidth: 350 }}>
-            <br /> <br /> <br /> <br />
-            <Typography variant="h5" component="h2" gutterBottom>
-              제품명 : {product.name}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.fromdate}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.text1}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.text2}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.text3}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.text4}
-            </Typography>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {product.text5}
-            </Typography>
-          </Grid>
-        </Grid>
 
-        {pagestarter.starter &&
-          pagestarter.starter.map(() => {
-            if (!pagestarter.starter) {
-              return <Grid>no data</Grid>;
-            } else {
-              if (product.detailtype === "img")
-                return (
-                  <Grid
-                    sx={{ justifyContent: "center", display: "flex", mx: 9 }}
-                  >
-                    <img src={product.detail} alt="" />;
-                  </Grid>
-                );
-              else if (product.detailtype === "html") {
-                return <div dangerouslySetInnerHTML={createMarkup()} />;
+          {pagestarter.starter &&
+            pagestarter.starter.map(() => {
+              if (!pagestarter.starter) {
+                return <Grid>no data</Grid>;
+              } else {
+                if (product.detailtype === "img")
+                  return (
+                    <Grid
+                      sx={{ justifyContent: "center", display: "flex", mx: 9 }}
+                    >
+                      <img width={'140%'} src={product.detail} alt="" />;
+                    </Grid>
+                  );
+                else if (product.detailtype === "html") {
+                  return <div dangerouslySetInnerHTML={createMarkup()} />;
+                }
               }
-            }
-          })}
+            })}
+        </> : <>
+          {/* PC환경 일 때 */}
+          <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+            <Grid sx={{ maxWidth: "600px", maxHeight: "600px" }}>
+              <img src={product.img} alt="product" height="600px" width="600px" />
+            </Grid>
+            <Grid sx={{ minWidth: 350 }}>
+              <br /> <br /> <br /> <br />
+              <Typography variant="h5" component="h2" gutterBottom>
+                제품명 : {product.name}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.fromdate}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.text1}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.text2}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.text3}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.text4}
+              </Typography>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {product.text5}
+              </Typography>
+            </Grid>
+          </Grid>
+
+          {pagestarter.starter &&
+            pagestarter.starter.map(() => {
+              if (!pagestarter.starter) {
+                return <Grid>no data</Grid>;
+              } else {
+                if (product.detailtype === "img")
+                  return (
+                    <Grid
+                      sx={{ justifyContent: "center", display: "flex", mx: 9 }}
+                    >
+                      <img src={product.detail} alt="" />;
+                    </Grid>
+                  );
+                else if (product.detailtype === "html") {
+                  return <div dangerouslySetInnerHTML={createMarkup()} />;
+                }
+              }
+            })}
+        </>
+        }
+
+
       </Container>
     </Box>
   );

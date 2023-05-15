@@ -49,49 +49,87 @@ const CompanyIntroduction = () => {
         {isMobile ?
           <>
             {/* 모바일일 때 */}
+            <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
+              <Typography variant="h4" component="h1" gutterBottom>
+                회사 소개
+              </Typography>
+            </Grid>
+            <Typography variant="h5" component="h2"   >
+              <Grid container sx={{ justifyContent: "center", mx: 9, display: 'inline-block', margin: 'auto' }}>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '220px', margin: 'auto' }}>
+                  1. 최고의 서비스 응대
+                </Grid>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '220px', margin: 'auto' }}>
+                  2. 최상의 품질 공급
+                </Grid>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '220px', margin: 'auto' }}>
+                  3. 다양한 유통망 확충
+                </Grid>
+              </Grid>
+            </Typography>
+            <Grid
+              sx={{
+                justifyContent: "center",
+                maxWidth: "100%",
+                overflowY: "scroll",
+              }}
+            >
+              {itemData.map((item) => (
+                <Grid
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    mx: 9,
+                  }}
+                >
+                  <img src={`${item.img}`} width={'100%'} alt={item.title} loading="lazy" />
+                </Grid>
+              ))}
+            </Grid>
 
           </> : <>
             {/* PC환경 일 때 */}
-
-          </>}
-        <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            회사 소개
-          </Typography>
-        </Grid>
-        <Typography variant="h5" component="h2" gutterBottom>
-          <Grid container sx={{ justifyContent: "center", mx: 9 }}>
-            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
-              최고의 서비스 응대
+            <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
+              <Typography variant="h4" component="h1" gutterBottom>
+                회사 소개
+              </Typography>
             </Grid>
-            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
-              최상의 품질 공급
-            </Grid>
-            <Grid item xs={4} sx={{ mx: 3, minWidth: '180px' }}>
-              다양한 유통망 확충
-            </Grid>
-          </Grid>
-        </Typography>
-        <Grid
-          sx={{
-            justifyContent: "center",
-            maxHeight: "700px",
-            overflowY: "scroll",
-          }}
-        >
-          {itemData.map((item) => (
+            <Typography variant="h5" component="h2" gutterBottom>
+              <Grid container sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '180px' }}>
+                  최고의 서비스 응대
+                </Grid>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '180px' }}>
+                  최상의 품질 공급
+                </Grid>
+                <Grid item xs={3} sx={{ mx: 3, minWidth: '180px' }}>
+                  다양한 유통망 확충
+                </Grid>
+              </Grid>
+            </Typography>
             <Grid
               sx={{
-                display: "flex",
                 justifyContent: "center",
-                textAlign: "center",
-                mx: 9,
+                maxHeight: "700px",
+                overflowY: "scroll",
               }}
             >
-              <img src={`${item.img}`} alt={item.title} loading="lazy" />
+              {itemData.map((item) => (
+                <Grid
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    mx: 9,
+                  }}
+                >
+                  <img src={`${item.img}`} alt={item.title} loading="lazy" />
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </>}
+
       </Container>
     </Box>
   );
