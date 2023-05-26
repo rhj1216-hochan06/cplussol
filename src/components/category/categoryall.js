@@ -49,11 +49,13 @@ const Categoryall = (props) => {
           {/* 모바일일 때 */}
           <div className={styles.filter}>
             <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={all}>전체보기</p>
-            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={LBP}>L B P</p>
-            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={SFP}>S F P</p>
-            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MFP}>M F P</p>
-            <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MiniPhotoPrinter}>Mini Photo
-              Printer</p>
+            <div>
+              <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={LBP}>L B P</p>
+              <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={SFP}>S F P</p>
+              <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MFP}>M F P</p>
+              <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MiniPhotoPrinter}>M P P</p>
+            </div>
+
           </div>
         </> : <>
           {/* PC환경 일 때 */}
