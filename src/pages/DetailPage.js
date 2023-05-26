@@ -45,11 +45,11 @@ export default function DetailPage() {
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="large">
         {isMobile ? <>
           {/* 모바일일 때 */}
-          <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+          <Grid sx={{ justifyContent: "center", mx: 9 }}>
             <Grid sx={{ maxWidth: "180px", maxHeight: "180px" }}>
               <img src={product.img} alt="product" height="175px" width="175px" />
             </Grid>
-            <Grid sx={{ maxWidth: '500px' }}>
+            <Grid sx={{ maxWidth: '600px' }}>
               <Typography sx={{ fontSize: '24px' }}>
                 제품명 : {product.name}
               </Typography>
