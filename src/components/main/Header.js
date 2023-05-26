@@ -10,21 +10,21 @@ export default function Header1() {
       <Box sx={{}}>
         <div className={styles.container1}>
           <div className={styles.item1} >
-            <Grid item xs={1} sx={{ mx: 5 }}>
+            <Grid item xs={1} sx={{}}>
               <a href="/">
                 <img src="/images/logo/leftlogo.jpg" height="100vh" />
               </a>
             </Grid>
           </div>
           <div className={styles.item2} >
-            <Grid item xs={1} sx={{ mx: 5 }}>
+            <Grid item xs={1} sx={{}}>
               <a href="/">
                 <img src="/images/logo/mainlogo-removebg.png" height="80vh" />
               </a>
             </Grid>
           </div>
           <div className={styles.item3} >
-            <Grid item xs={1} sx={{ mx: 5, my: 2, minWidth: "330px" }}>
+            <Grid item xs={1} sx={{ mx: 5, my: 2, minWidth: "250px" }}>
               <a href="tel:02-2622-8081">
                 <Grid item xs={4} sx={{ mx: 5, display: "flex" }}>
                   <PhoneIcon fontSize="large" />
