@@ -9,6 +9,17 @@ import axios from "axios";
 import { Grid } from "@mui/material";
 import { useMediaQuery } from '@mui/material';
 
+import MAXIFY_GX6092 from "../components/detail/MAXIFY GX6092";
+import MAXIFY_GX7092 from "../components/detail/MAXIFY GX7092";
+import PIXMA_E4590 from "../components/detail/PIXMA E4590";
+import PIXMA_G2910 from "../components/detail/PIXMA G2910";
+import PIXMA_G2915 from "../components/detail/PIXMA G2915";
+import PIXMA_MG2490 from "../components/detail/PIXMA MG2490";
+import RP_108 from "../components/detail/RP-108";
+import SELPHY_CP1500 from "../components/detail/SELPHY CP1500";
+import SELPHY_SQUARE_QX10 from "../components/detail/SELPHY SQUARE QX10";
+
+
 export default function DetailPage() {
   const [pagestarter, setPagestarter] = useState([]);
   const [product, setProduct] = useState([]);
@@ -18,62 +29,16 @@ export default function DetailPage() {
     setPagestarter({
       starter: [{ id: 1 }],
     });
+
     axios.get("/data/products.json").then((datafile) => {
       datafile.data.map((product) => {
         if (product.id === id) {
           setProduct(product);
         }
       });
-    });
+    })
+      ;
   }, []);
-  function createMarkup() {
-    if (product.name === "PIXMA MG2490")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/PIXMA MG2490.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "PIXMA E4590")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/PIXMA E4590.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "PIXMA G2910")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/PIXMA G2910.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "PIXMA G2915")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/PIXMA G2915.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "MAXIFY GX6092")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/MAXIFY GX6092.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "MAXIFY GX7092")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/MAXIFY GX7092.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "SELPHY CP1500")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/SELPHY CP1500.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "SELPHY SQUARE QX10")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/SELPHY SQUARE QX10.html" width="100%" height="700px"></iframe>',
-      };
-    else if (product.name === "RP-108")
-      return {
-        __html:
-          '<iframe src="/images/productsdetail/SELPHY SQUARE QX10.html" width="100%" height="700px"></iframe>',
-      };
-  }
-
   return (
     <Box>
       <CssBaseline />
@@ -108,25 +73,6 @@ export default function DetailPage() {
               </Typography>
             </Grid>
           </Grid>
-
-          {pagestarter.starter &&
-            pagestarter.starter.map(() => {
-              if (!pagestarter.starter) {
-                return <Grid>no data</Grid>;
-              } else {
-                if (product.detailtype === "img")
-                  return (
-                    <Grid
-                      sx={{ justifyContent: "center", display: "flex", mx: 9 }}
-                    >
-                      <img width={'140%'} src={product.detail} alt="" />;
-                    </Grid>
-                  );
-                else if (product.detailtype === "html") {
-                  return <div dangerouslySetInnerHTML={createMarkup()} />;
-                }
-              }
-            })}
         </> : <>
           {/* PC환경 일 때 */}
           <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
@@ -158,29 +104,52 @@ export default function DetailPage() {
               </Typography>
             </Grid>
           </Grid>
-
-          {pagestarter.starter &&
-            pagestarter.starter.map(() => {
-              if (!pagestarter.starter) {
-                return <Grid>no data</Grid>;
-              } else {
-                if (product.detailtype === "img")
-                  return (
-                    <Grid
-                      sx={{ justifyContent: "center", display: "flex", mx: 9 }}
-                    >
-                      <img src={product.detail} alt="" />;
-                    </Grid>
-                  );
-                else if (product.detailtype === "html") {
-                  return <div dangerouslySetInnerHTML={createMarkup()} />;
-                }
-              }
-            })}
         </>
         }
-
-
+        {pagestarter.starter &&
+          pagestarter.starter.map(() => {
+            if (!pagestarter.starter) {
+              return <Grid>no data</Grid>
+            } else {
+              if (product.detailtype === "img")
+                return (
+                  <Grid
+                    sx={{ justifyContent: "center", display: "flex", mx: 9 }}
+                  >
+                    <img width={'130%'} src={product.detail} alt="" />
+                  </Grid>
+                );
+              else if (product.detailtype === "html") {
+                if (product.name === "MAXIFY GX6092") {
+                  return <MAXIFY_GX6092></MAXIFY_GX6092>
+                }
+                else if (product.name === "MAXIFY GX7092") {
+                  return <MAXIFY_GX7092></MAXIFY_GX7092>
+                }
+                else if (product.name === "PIXMA E4590") {
+                  return <PIXMA_E4590></PIXMA_E4590>
+                }
+                else if (product.name === "PIXMA G2910") {
+                  return <PIXMA_G2910></PIXMA_G2910>
+                }
+                else if (product.name === "PIXMA G2915") {
+                  return <PIXMA_G2915></PIXMA_G2915>
+                }
+                else if (product.name === "PIXMA MG2490") {
+                  return <PIXMA_MG2490></PIXMA_MG2490>
+                }
+                else if (product.name === "RP-108") {
+                  return <RP_108></RP_108>
+                }
+                else if (product.name === "SELPHY CP1500") {
+                  return <SELPHY_CP1500></SELPHY_CP1500>
+                }
+                else if (product.name === "SELPHY SQUARE QX10") {
+                  return <SELPHY_SQUARE_QX10></SELPHY_SQUARE_QX10>
+                }
+              }
+            }
+          })}
       </Container>
     </Box>
   );
