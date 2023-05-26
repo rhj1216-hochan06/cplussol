@@ -4,8 +4,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Grid } from "@mui/material";
+import { useMediaQuery } from '@mui/material';
+
 
 const MainCustomer = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <Box>
       <CssBaseline />
@@ -25,7 +28,17 @@ const MainCustomer = () => {
             mx: 10,
           }}
         >
-          <img src="/images/custmerlogo/custmerlogo.png" width="130%" />
+          {isMobile ? <>
+            {/* 모바일 일 때 */}
+            <img src="/images/custmerlogo/custmerlogo.png" width="150%" />
+
+          </> : <>
+            {/* pc환경 일 때  */}
+            <img src="/images/custmerlogo/custmerlogo.png" width="100%" />
+
+          </>}
+
+
         </Grid>
       </Container>
     </Box>
