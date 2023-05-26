@@ -46,10 +46,10 @@ export default function DetailPage() {
         {isMobile ? <>
           {/* 모바일일 때 */}
           <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
-            <Grid sx={{ maxWidth: "200px", maxHeight: "200px" }}>
-              <img src={product.img} alt="product" height="200px" width="200px" />
+            <Grid sx={{ maxWidth: "180px", maxHeight: "180px" }}>
+              <img src={product.img} alt="product" height="175px" width="175px" />
             </Grid>
-            <Grid sx={{ minWidth: 350 }}>
+            <Grid sx={{ maxWidth: '500px' }}>
               <Typography sx={{ fontSize: '24px' }}>
                 제품명 : {product.name}
               </Typography>
@@ -68,7 +68,7 @@ export default function DetailPage() {
               <Typography sx={{ fontSize: '20px' }}>
                 {product.text4}
               </Typography>
-              <Typography sx={{ fontSize: '20px' }}>
+              <Typography sx={{ fontSize: '20px' }} >
                 {product.text5}
               </Typography>
             </Grid>
@@ -77,9 +77,9 @@ export default function DetailPage() {
           {/* PC환경 일 때 */}
           <Grid sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
             <Grid sx={{ maxWidth: "600px", maxHeight: "600px" }}>
-              <img src={product.img} alt="product" height="600px" width="600px" />
+              <img src={product.img} alt="product" height="500px" width="500px" />
             </Grid>
-            <Grid sx={{ minWidth: 350 }}>
+            <Grid sx={{ minWidth: 350, maxWidth: "600px" }}>
               <br /> <br /> <br /> <br />
               <Typography variant="h5" component="h2" gutterBottom>
                 제품명 : {product.name}
