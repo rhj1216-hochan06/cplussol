@@ -70,7 +70,7 @@ const CompanyIntroduction = () => {
             <Grid
               sx={{
                 justifyContent: "center",
-                maxWidth: "100%",
+                maxWidth: "95%",
                 overflowY: "scroll",
               }}
             >
@@ -90,13 +90,13 @@ const CompanyIntroduction = () => {
 
           </> : <>
             {/* PC환경 일 때 */}
-            <Grid sx={{ justifyContent: "center", display: "flex", mx: 9, minWidth: '128px' }}>
+            <Grid sx={{ justifyContent: "center", display: "flex", minWidth: '128px' }}>
               <Typography variant="h4" component="h1" gutterBottom>
                 회사 소개
               </Typography>
             </Grid>
             <Typography variant="h5" component="h2" gutterBottom>
-              <Grid container sx={{ justifyContent: "center", display: "flex", mx: 9 }}>
+              <Grid container sx={{ justifyContent: "center", display: "flex" }}>
                 <Grid item xs={3} sx={{ mx: 3, minWidth: '180px' }}>
                   최고의 서비스 응대
                 </Grid>
@@ -111,7 +111,7 @@ const CompanyIntroduction = () => {
             <Grid
               sx={{
                 justifyContent: "center",
-                maxHeight: "700px",
+                maxWidth: "100%",
                 overflowY: "scroll",
               }}
             >
@@ -121,7 +121,7 @@ const CompanyIntroduction = () => {
                     display: "flex",
                     justifyContent: "center",
                     textAlign: "center",
-                    mx: 9,
+
                   }}
                 >
                   <img src={`${item.img}`} alt={item.title} loading="lazy" />
