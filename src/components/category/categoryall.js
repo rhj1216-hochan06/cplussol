@@ -30,7 +30,8 @@ const Categoryall = (props) => {
       setProducts(datafile.data);
       setSelect(category);
     });
-  }, []);
+    setCurrentPage(1);
+  }, [isMobile]);
 
   const all = () => {
     setSelect("all");
@@ -103,14 +104,14 @@ const Categoryall = (props) => {
         {isMobile ? (
           <>
             {/* 모바일일 때 */}
+
             <div className={styles.filter}>
-              <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={all}>전체보기</p>
-              <div>
-                <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={LBP}>L B P</p>
-                <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={SFP}>S F P</p>
-                <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MFP}>M F P</p>
-                <p style={{ justifyContent: "center", minWidth: '90px' }} onClick={MiniPhotoPrinter}>M P P</p>
-              </div>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={all}>전체보기</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={LBP}>L B P</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={SFP}>S F P</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MFP}>M F P</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MiniPhotoPrinter}>M P P</p>
+
             </div>
             {/* 검색 입력 필드 */}
             <TextField
@@ -140,7 +141,7 @@ const Categoryall = (props) => {
               <p onClick={MiniPhotoPrinter}>MiniPhotoPrinter</p>
             </div>
             {/* 검색 입력 필드 */}
-            <div style={{ display: "flex", justifyContent: "center", maxWidth: "80%", margin: "0 auto" }}>
+            <div style={{ display: "flex", justifyContent: "center", maxWidth: "85%", margin: "0 auto" }}>
               <TextField
                 label="검색"
                 variant="outlined"
@@ -199,7 +200,7 @@ const Categoryall = (props) => {
               />
           }
         </div>
-        <Typography style={{ float: 'right' }}>현재 페이지: {currentPage}</Typography>
+        {/* <Typography style={{ float: 'right' }}>현재 페이지: {currentPage}</Typography> */}
       </Container>
     </Box>
   );
