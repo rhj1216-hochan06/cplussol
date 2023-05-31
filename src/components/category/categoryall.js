@@ -106,11 +106,11 @@ const Categoryall = (props) => {
             {/* 모바일일 때 */}
 
             <div className={styles.filter}>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={all}>전체보기</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={LBP}>L B P</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={SFP}>S F P</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MFP}>M F P</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MiniPhotoPrinter}>M P P</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={all}>전체</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={LBP}>LBP</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={SFP}>SFP</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MFP}>MFP</p>
+              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MiniPhotoPrinter}>MPP</p>
 
             </div>
             {/* 검색 입력 필드 */}
@@ -159,7 +159,6 @@ const Categoryall = (props) => {
               /></div>
           </>
         )}
-
         <main className={styles.flex_wrap}>
           {getPagedProducts().length > 0 ? (
             getPagedProducts().map((product) => (
@@ -179,11 +178,24 @@ const Categoryall = (props) => {
                 </div>
               </div>
             ))
-          ) : (
-            <Grid>no data</Grid>
-          )}
+          ) :
+            (
+              isMobile ?
+                <div className={styles.search_no_results}>
+                  <div style={{ minWidth: '150px' }}>
+                    <h3>‘{searchText}’ 검색 결과가 없습니다.</h3>
+
+                  </div>
+                </div>
+                : <div className={styles.search_no_results}>
+                  <div style={{ minWidth: '500px' }}>
+                    <h3>‘{searchText}’ 검색 결과가 없습니다.</h3>
+                    검색어를 다시 한번 확인해주세요.
+                  </div>
+                </div>
+            )
+          }
         </main>
-        {/* 페이징 기능 */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           {
             isMobile ?
@@ -200,9 +212,8 @@ const Categoryall = (props) => {
               />
           }
         </div>
-        {/* <Typography style={{ float: 'right' }}>현재 페이지: {currentPage}</Typography> */}
       </Container>
-    </Box>
+    </Box >
   );
 };
 
