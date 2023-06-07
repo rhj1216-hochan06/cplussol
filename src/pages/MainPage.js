@@ -16,7 +16,7 @@ import { useMediaQuery } from '@mui/material';
 
 export default function Main() {
   const [products, setProducts] = useState([]);
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 835px)');
 
   useEffect(() => {
     axios.get("/data/category.json").then((datafile) => {
