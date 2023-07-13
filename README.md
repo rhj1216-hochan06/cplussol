@@ -4,10 +4,10 @@ cplussol.com
 2023.03.10 ~ 03.26
 
 ## 배포 정보
-현재 배포하고 연결
-npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을
-[rhj1216-1216]( https://rhj1216-1216.github.io ) 에 업로드함
-이 주소를 가비아에서 포워딩함
+현재 배포하고 연결 <br />
+npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을<br />
+[https://rhj1216-1216.github.io]( https://rhj1216-1216.github.io ) 에 업로드함<br />
+이 주소를 가비아에서 포워딩함 <br />
 
 ## 추가된 사항
 
@@ -25,9 +25,9 @@ npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을
 
 
 ## 제품 정리
-제품들은 JSON 형식으로 관리할 예정
-public/images/products 폴더와 src/components/detail 폴더 참조
-제품상세 설명이 canon측에서 이미지와 html 타입 2가지를 사용함
+제품들은 JSON 형식으로 관리할 예정<br />
+public/images/products 폴더와 src/components/detail 폴더 참조<br />
+제품상세 설명이 canon측에서 이미지와 html 타입 2가지를 사용함<br />
 
 ## 참고 사이트
 
