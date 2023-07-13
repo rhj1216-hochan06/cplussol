@@ -24,7 +24,7 @@ export default function DetailPage() {
   const [pagestarter, setPagestarter] = useState([]);
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 780px)');
   useEffect(() => {
     setPagestarter({
       starter: [{ id: 1 }],
@@ -116,7 +116,7 @@ export default function DetailPage() {
                   <Grid
                     sx={{ justifyContent: "center", display: "flex", mx: 9 }}
                   >
-                    <img width={'130%'} src={product.detail} alt="" />
+                    <img width={'110%'} src={product.detail} alt="" />
                   </Grid>
                 );
               else if (product.detailtype === "html") {
