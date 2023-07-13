@@ -14,7 +14,7 @@ export default function SELPHY_CP1500() {
         </>}
 
         <div class="detail-item">
-            <p><img src="http://image.kr.canon/namo/binary/20221118121444989_5A2HT1TD.jpg" width="98%" />
+            <p><img src="http://image.kr.canon/namo/binary/20230621003507138_7E95I0BA.jpg" width="98%" />
                 <a href="https://kr.canon/support/mobileApp/canonPrintSelphy" target="_blank" style={{ fontSize: '13.3333px' }}>
                     <img src="http://image.kr.canon/namo/binary/20221118121452287_HYT3MLRN.jpg" width="98%" />
                 </a>
