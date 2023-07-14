@@ -40,7 +40,6 @@ export default function Header1() {
 
         </div>
       </Box>
-      {/* <ResponsiveAppBar></ResponsiveAppBar> */}
       <CustomAppBar />
     </Box>
   );

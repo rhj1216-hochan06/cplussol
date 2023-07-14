@@ -13,44 +13,31 @@ import CategoryPage from "./pages/CategoryPage";
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/robots.txt"
-            element={
-              <pre>
-                {`# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
 
-Sitemap: https://rhj1216-1216.github.io/sitemap.xml
-`}
-              </pre>
-            }
-          />
-          <Route
-            element={
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  minHeight: "100vh",
-                }}
-              >
-                <Header1 />
-                <Route path="/" element={<Main />} />
-                <Route path="introduction" element={<IntroductionPage />} />
-                <Route path="map" element={<MapPage />} />
-                <Route path="/products/:id" element={<DetailPage />} />
-                <Route path="/category/:category" element={<CategoryPage />} />
-                <Footer1 />
-              </Box>
-            }
-          />
-          <Route path="*" element={<RedirectPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+        <BrowserRouter>
+          <Header1 />
+          <Routes>
+
+            <Route path="/" element={<Main />} />
+            <Route path="introduction" element={<IntroductionPage />} />
+            <Route path="map" element={<MapPage />} />
+            <Route path="/products/:id" element={<DetailPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="*" element={<RedirectPage />} />
+
+          </Routes>
+        </BrowserRouter>
+        <Footer1 />
+
+      </Box>
+    </div >
   );
 };
 
