@@ -31,6 +31,6 @@ npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을<br /
 public/images/products 폴더와 src/components/detail 폴더 참조<br />
 제품상세 설명이 canon측에서 이미지와 html 타입 2가지를 사용함<br />
 
-//## 참고 사이트
-//
-//- [http://allbizsol.com/](http://allbizsol.com/)
+## 참고 사이트
+
+- [http://allbizsol.com/](http://allbizsol.com/)
