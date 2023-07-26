@@ -9,6 +9,8 @@ npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을<br /
 [https://rhj1216-1216.github.io]( https://rhj1216-1216.github.io ) 에 업로드함<br />
 이 주소를 가비아에서 포워딩함 <br />
 
+[빌드용 프로젝트 주소](https://github.com/rhj1216-1216/rhj1216-1216.github.io)<br />
+
 ## 추가된 사항
 
 1. 모바일 버전 화면 구성 (useMediaQuery를 사용하여 진행됨)
