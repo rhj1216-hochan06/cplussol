@@ -60,16 +60,16 @@ const CustomAppBar = (props) => {
 
   const navigate = useNavigate();
   const navigateToMap = () => {
-    navigate("/map");
+    navigate("./map");
   };
   const navigateToIntroduction = () => {
-    navigate("/introduction");
+    navigate("./introduction");
   };
   const navigateToHome = () => {
-    navigate("/");
+    navigate("./");
   };
   const navigateToCategory = () => {
-    navigate("/category/all");
+    navigate("./category/all");
   };
   const a = (props) => {
     if (props === "홈 화면") navigateToHome();

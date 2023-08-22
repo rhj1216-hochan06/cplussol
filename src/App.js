@@ -20,24 +20,25 @@ const App = () => {
           minHeight: "100vh",
         }}
       >
-
         <BrowserRouter>
           <Header1 />
           <Routes>
-
             <Route path="/" element={<Main />} />
             <Route path="introduction" element={<IntroductionPage />} />
             <Route path="map" element={<MapPage />} />
-            <Route path="/products/:id" element={<DetailPage />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="products/:id" element={<DetailPage />} />
+            <Route path="category/:category" element={<CategoryPage />} />
+            <Route path="./" element={<Main />} />
+            <Route path=".introduction" element={<IntroductionPage />} />
+            <Route path=".map" element={<MapPage />} />
+            <Route path=".products/:id" element={<DetailPage />} />
+            <Route path=".category/:category" element={<CategoryPage />} />
             <Route path="*" element={<RedirectPage />} />
-
           </Routes>
         </BrowserRouter>
         <Footer1 />
-
       </Box>
-    </div >
+    </div>
   );
 };
 
