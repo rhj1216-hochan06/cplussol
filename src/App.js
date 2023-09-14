@@ -24,15 +24,11 @@ const App = () => {
           <Header1 />
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="home" element={<Main />} />
             <Route path="introduction" element={<IntroductionPage />} />
             <Route path="map" element={<MapPage />} />
             <Route path="products/:id" element={<DetailPage />} />
             <Route path="category/:category" element={<CategoryPage />} />
-            <Route path="./" element={<Main />} />
-            <Route path=".introduction" element={<IntroductionPage />} />
-            <Route path=".map" element={<MapPage />} />
-            <Route path=".products/:id" element={<DetailPage />} />
-            <Route path=".category/:category" element={<CategoryPage />} />
             <Route path="*" element={<RedirectPage />} />
           </Routes>
         </BrowserRouter>

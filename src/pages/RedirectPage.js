@@ -12,7 +12,7 @@ export default function RedirectPage() {
   useEffect(() => {
     setTimeout(() => {
       navigate("/", { replace: true });
-    }, 3000);
+    }, 1000);
   }, [navigate]);
 
   return (
