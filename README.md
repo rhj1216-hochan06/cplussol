@@ -24,8 +24,7 @@ npm run build 를 사용하여 빌드폴더를 생성하여 빌드파일을<br /
 |            | UI        | MaterialUI           | 5.11.2, icon 5.11.0  |
 |            | 상태관리  | @reduxjs/toolkit     | 1.9.1, 8.0.5        |
 |            | 개발환경  | npm + yarn           | vsc 사용             |
-
-
+|            |         |node -v               |추후 확인할 것          |
 ## 제품 정리
 제품들은 JSON 형식으로 관리할 예정<br />
 public/images/products 폴더와 src/components/detail 폴더 참조<br />
