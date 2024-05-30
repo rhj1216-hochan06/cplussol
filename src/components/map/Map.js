@@ -20,7 +20,7 @@ const Map = () => {
     marker.setMap(map);
 
     var iwContent =
-      '<div style="padding:5px;">씨플러스 솔루션<br><a href="http://kko.to/uAtNkd797a" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/에이스하이엔드타워 10차,37.46877499136315,126.88754810027754" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+      '<div style="padding:5px;">씨플러스 솔루션<br><a href="https://kko.to/XBX0AplYXh" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/씨플러스솔루션,37.46877499136315,126.88754810027754" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
       iwPosition = new kakao.maps.LatLng(37.46877499136315, 126.88754810027754); //인포윈도우 표시 위치입니다
 
     // 인포윈도우를 생성합니다
