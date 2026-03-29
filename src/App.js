@@ -18,6 +18,7 @@ const App = () => {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
+          color: "text.primary",
         }}
       >
         <BrowserRouter>

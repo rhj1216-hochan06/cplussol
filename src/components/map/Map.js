@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 const { kakao } = window;
+
 const Map = () => {
   useEffect(() => {
     const container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+    if (!container || !kakao) {
+      return;
+    }
+
     const options = {
       center: new kakao.maps.LatLng(37.46877499136315, 126.88754810027754), //지도의 중심좌표.
       level: 2,
@@ -35,7 +40,14 @@ const Map = () => {
 
   return (
     <>
-      <div id="map" style={{ width: "100vh", height: "60vh" }}></div>
+      <div
+        id="map"
+        style={{
+          width: "100%",
+          minHeight: "360px",
+          height: "100%",
+        }}
+      ></div>
     </>
   );
 };

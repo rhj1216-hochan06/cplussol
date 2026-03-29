@@ -1,204 +1,272 @@
-import { ArrowBack, Person } from "@mui/icons-material";
-import { AppBar, Tab, Tabs } from "@mui/material";
-import * as React from "react";
-import styled from "styled-components";
-
 import MenuIcon from "@mui/icons-material/Menu";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import * as React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+const drawerWidth = 320;
 
-const drawerWidth = 240;
-const navItems = ["홈 화면", "제품소개", "회사소개", "찾아오시는 길"];
+const navItems = [
+  {
+    label: "홈",
+    path: "/",
+    match: (pathname) => pathname === "/" || pathname === "/home",
+  },
+  {
+    label: "제품 소개",
+    path: "/category/all",
+    match: (pathname) =>
+      pathname.startsWith("/category") || pathname.startsWith("/products"),
+  },
+  {
+    label: "회사 소개",
+    path: "/introduction",
+    match: (pathname) => pathname.startsWith("/introduction"),
+  },
+  {
+    label: "찾아오시는 길",
+    path: "/map",
+    match: (pathname) => pathname.startsWith("/map"),
+  },
+];
 
-const StyledAppBar2 = styled(AppBar)`
-  && {
-    background-color: rgba(52, 152, 219, 0.5);
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    font-weight: 800;
-  }
-`;
 const CustomAppBar = (props) => {
-  const [value2, setValue2] = React.useState(0);
-  const handleChange2 = (event, newValue) => {
-    setValue2(newValue);
-  };
-
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    setMobileOpen(false);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
-  const navigate = useNavigate();
-  const navigateToMap = () => {
-    navigate("./map");
-  };
-  const navigateToIntroduction = () => {
-    navigate("./introduction");
-  };
-  const navigateToHome = () => {
-    navigate("./");
-  };
-  const navigateToCategory = () => {
-    navigate("./category/all");
-  };
-  const a = (props) => {
-    if (props === "홈 화면") navigateToHome();
-    else if (props === "제품소개") navigateToCategory();
-    else if (props === "회사소개") navigateToIntroduction();
-    else navigateToMap();
-  };
-
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        회사 이름
+    <Box
+      sx={{
+        display: "flex",
+        height: "100%",
+        flexDirection: "column",
+        px: 2,
+        py: 3,
+      }}
+    >
+      <Typography variant="subtitle2" color="secondary.main">
+        CPLUS SOLUTION
       </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center" }}
-              onClick={() => a(item)}
-            >
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <Typography sx={{ mt: 1, mb: 2 }} variant="h5">
+        기업용 출력 환경을 더 간결하게 안내합니다.
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        제품 소개, 회사 정보, 연락처를 모바일에서도 같은 흐름으로 확인할 수
+        있도록 메뉴를 정리했습니다.
+      </Typography>
+      <Divider sx={{ my: 3 }} />
+      <List sx={{ px: 0, py: 0 }}>
+        {navItems.map((item) => {
+          const active = item.match(location.pathname);
+
+          return (
+            <ListItem key={item.label} disablePadding sx={{ mb: 1 }}>
+              <ListItemButton
+                selected={active}
+                onClick={() => handleNavigate(item.path)}
+                sx={{
+                  px: 2,
+                  py: 1.5,
+                  "&.Mui-selected": {
+                    backgroundColor: alpha("#0f172a", 0.06),
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{
+                    fontWeight: active ? 800 : 700,
+                    color: active ? "primary.main" : "text.primary",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
+      <Box
+        sx={{
+          mt: "auto",
+          borderRadius: "var(--radius-md)",
+          border: "1px solid var(--color-line)",
+          backgroundColor: alpha("#ffffff", 0.82),
+          p: 2,
+        }}
+      >
+        <Typography variant="subtitle2" color="text.secondary">
+          제품 문의
+        </Typography>
+        <Typography sx={{ mt: 0.5 }} variant="h6">
+          02-2622-8081~2
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          평일 상담 및 구매 문의를 도와드립니다.
+        </Typography>
+      </Box>
     </Box>
   );
+
   return (
-    <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            {/* <HomeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleDrawerToggle}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Box component="nav">
-                <Drawer
-                  container={container}
-                  variant="temporary"
-                  open={mobileOpen}
-                  onClose={handleDrawerToggle}
-                  ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                  }}
+    <AppBar
+      position="sticky"
+      color="transparent"
+      sx={{
+        top: 0,
+        mt: 2,
+        backgroundColor: "transparent",
+      }}
+    >
+      <Container maxWidth="xl" disableGutters>
+        <Toolbar
+          disableGutters
+          sx={{
+            minHeight: 72,
+            justifyContent: "space-between",
+            gap: 2,
+            borderRadius: "var(--radius-lg)",
+            border: `1px solid ${alpha("#ffffff", 0.12)}`,
+            background:
+              "linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88))",
+            px: { xs: 1.5, sm: 2.5 },
+            py: 1,
+            boxShadow: "0 20px 50px rgba(15, 23, 42, 0.18)",
+            backdropFilter: "blur(16px)",
+          }}
+        >
+          <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
+            <IconButton
+              size="large"
+              edge="start"
+              aria-label="메뉴 열기"
+              onClick={handleDrawerToggle}
+              sx={{
+                color: "#ffffff",
+                borderRadius: 3,
+                border: `1px solid ${alpha("#ffffff", 0.12)}`,
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              container={container}
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                "& .MuiDrawer-paper": {
+                  boxSizing: "border-box",
+                  width: drawerWidth,
+                },
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Box>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            {navItems.map((item) => {
+              const active = item.match(location.pathname);
+
+              return (
+                <Button
+                  key={item.label}
+                  onClick={() => handleNavigate(item.path)}
+                  aria-current={active ? "page" : undefined}
                   sx={{
-                    display: { xs: "block", sm: "none" },
-                    "& .MuiDrawer-paper": {
-                      boxSizing: "border-box",
-                      width: drawerWidth,
+                    px: 2.25,
+                    py: 1.2,
+                    borderRadius: 999,
+                    color: active ? "primary.main" : "rgba(255, 255, 255, 0.86)",
+                    backgroundColor: active
+                      ? "rgba(255, 255, 255, 0.96)"
+                      : "transparent",
+                    "&:hover": {
+                      backgroundColor: active
+                        ? "rgba(255, 255, 255, 1)"
+                        : "rgba(255, 255, 255, 0.08)",
                     },
                   }}
                 >
-                  {drawer}
-                </Drawer>
-              </Box>
-            </Box>
+                  {item.label}
+                </Button>
+              );
+            })}
+          </Box>
 
-            {/*  */}
-
-            <Box
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1.25,
+              color: "rgba(255, 255, 255, 0.88)",
+            }}
+          >
+            <Typography
+              sx={{ display: { xs: "none", sm: "block" } }}
+              variant="body2"
+            >
+              Canon 출력 솔루션 파트너
+            </Typography>
+            <Button
+              color="inherit"
+              variant="outlined"
+              href="tel:02-2622-8081"
               sx={{
-                flexGrow: 1,
-                display: { xs: "none", sm: "flex" },
-                justifyContent: "space-evenly",
+                borderColor: alpha("#ffffff", 0.22),
+                color: "#ffffff",
+                px: { xs: 1.8, sm: 2.5 },
+                "&:hover": {
+                  borderColor: alpha("#ffffff", 0.36),
+                  backgroundColor: alpha("#ffffff", 0.08),
+                },
               }}
             >
-              {/* 홈 화면 버튼 */}
-              <Button
-                key="홈 화면"
-                onClick={navigateToHome}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Typography fontSize={20}>홈 화면</Typography>
-              </Button>
-
-              {/* 제품 소개 버튼 */}
-              <Button
-                key="제품소개 화면"
-                onClick={navigateToCategory}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Typography fontSize={20}>제품 소개</Typography>
-              </Button>
-
-              {/* 회사 소개 버튼 */}
-              <Button
-                key="회사소개 화면"
-                onClick={navigateToIntroduction}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Typography fontSize={20}>회사 소개</Typography>
-              </Button>
-
-              {/* 찾아오시는 길 버튼 */}
-              <Button
-                key="맵 화면"
-                onClick={navigateToMap}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Typography fontSize={20}>찾아오시는 길</Typography>
-              </Button>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-      {/* <StyledAppBar2 position="static">
-        <Tabs value={value2} onChange={handleChange2} aria-label="Main Tabs">
-          <Tab label="환자 등록" icon={<ArrowBack />} />
-          <Tab label="내원 등록" icon={<ArrowBack />} />
-          <Tab label="환자 찾기/내원찾기" icon={<Person />} />
-          <Tab label="처방 생성" icon={<Person />} />
-          <Tab label="처방조회" icon={<Person />} />
-          <Tab label="채혈" icon={<Person />} />
-          <Tab label="검사의뢰" icon={<Person />} />
-          <Tab label="검사조회" icon={<Person />} />
-          <Tab label="부적합결과입력" icon={<Person />} />
-        </Tabs>
-      </StyledAppBar2> */}
-    </>
+              문의하기
+            </Button>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
+
 export default CustomAppBar;

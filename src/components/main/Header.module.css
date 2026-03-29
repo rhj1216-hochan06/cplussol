@@ -1,19 +1,175 @@
-.container1 {
+.headerShell {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 24px 28px;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.84) 100%
+  );
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.brandLink {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.partnerMark {
+  width: 92px;
+  height: 92px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  text-align: center;
+  padding: 10px;
+  border-radius: 24px;
+  border: 1px solid var(--color-line);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.76) 100%);
+}
+
+.partnerMark img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.brandContent {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brandLogo {
+  width: min(100%, 520px);
+  height: auto;
+  object-fit: contain;
+}
+
+.brandCaption {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.contactPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 210px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.contactIcon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--color-primary);
+}
+
+.contactLabel,
+.contactValue {
+  display: block;
+}
+
+.contactLabel {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactValue {
+  margin-top: 4px;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 1080px) {
+  .headerShell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brandLink {
+    justify-content: center;
+  }
+
+  .brandContent {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactPanel {
+    justify-content: stretch;
+  }
+
+  .contactItem {
+    flex: 1 1 220px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .container1 {
-    flex-direction: column;
-    justify-content: center;
-
-
+  .headerShell {
+    padding: 20px;
+    gap: 18px;
   }
 
-  .item3 {
-    margin: 0 auto;
+  .brandLink {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .partnerMark {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+  }
+
+  .brandCaption {
+    font-size: 13px;
+  }
+
+  .contactPanel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contactItem {
+    width: 100%;
+    min-width: 0;
   }
 }
