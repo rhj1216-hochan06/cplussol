@@ -15,14 +15,15 @@
 }
 
 .flex_wrap {
-  max-width: 1000px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  place-items: baseline;
-  gap: 30px 50px;
-  margin: 0px auto 0;
-  margin-top: 35px;
-  max-width: min-content;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  justify-items: center;
+  align-items: flex-start;
+  gap: 30px 24px;
+  width: min(100%, 1320px);
+  margin: 35px auto 0;
+  padding: 0 20px 24px;
+  box-sizing: border-box;
 }
 
 .flex_wrap2 {
@@ -45,11 +46,16 @@
 .product {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 190px;
 }
 
 .product_image {
-  width: 270px;
-  height: 270px;
+  width: 100%;
+  max-width: 190px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 5px;
 }
@@ -75,6 +81,7 @@
 
 .product_name {
   margin-bottom: 0px;
+  text-align: center;
 }
 
 .product_name span {
@@ -130,8 +137,7 @@
 
 @media (max-width: 1570px) {
   .product_image {
-    width: 200px;
-    height: 200px;
+    max-width: 180px;
   }
 
   .product_name span {
@@ -140,9 +146,16 @@
 }
 
 @media (max-width: 1230px) {
+  .flex_wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .product {
+    max-width: 200px;
+  }
+
   .product_image {
-    width: 180px;
-    height: 180px;
+    max-width: 200px;
   }
 
   .product_name span {
@@ -152,8 +165,7 @@
 
 @media (max-width: 1130px) {
   .product_image {
-    width: 150px;
-    height: 150px;
+    max-width: 180px;
   }
 
   .product_name span {
@@ -163,12 +175,15 @@
 
 @media (max-width: 975px) {
   .flex_wrap {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 20px;
+  }
+
+  .product {
+    max-width: 180px;
   }
 
   .product_image {
-    width: 180px;
-    height: 180px;
+    max-width: 180px;
   }
 
   .product_name span {
@@ -178,12 +193,16 @@
 
 @media (max-width: 670px) {
   .flex_wrap {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .product {
+    max-width: 180px;
   }
 
   .product_image {
-    width: 180px;
-    height: 180px;
+    max-width: 180px;
   }
 
   .product_name span {
@@ -192,9 +211,16 @@
 }
 
 @media (max-width: 490px) {
+  .flex_wrap {
+    padding: 0 12px 20px;
+  }
+
+  .product {
+    max-width: 140px;
+  }
+
   .product_image {
-    width: 140px;
-    height: 140px;
+    max-width: 140px;
   }
 
   .product_name span {
