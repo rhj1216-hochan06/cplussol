@@ -1,13 +1,11 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Grid } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Products.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMediaQuery } from '@mui/material';
 import { Pagination } from "@mui/material";
 import { TextField, InputAdornment, IconButton } from "@mui/material";
@@ -15,43 +13,64 @@ import { Search } from "@mui/icons-material";
 
 const Categoryall = (props) => {
   const [products, setProducts] = useState([]);
-  const [select, setSelect] = useState("all");
   const [searchText, setSearchText] = useState(""); // 검색어 상태 추가
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태 추가
   const [itemsPerPage, setItemsPerPage] = useState(12); // 페이지당 아이템 개수 상태 추가
   const { category } = props;
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const navigate = useNavigate();
+  const selectedCategory = category || "all";
+  const priorityProductNames = ["iRC3326", "MAXIFY GX7192"];
 
   useEffect(() => {
-    {
-      isMobile ? setItemsPerPage(6) : setItemsPerPage(12)
-    }
-    axios.get("/data/products.json").then((datafile) => {
-      setProducts(datafile.data);
-      setSelect(category);
-    });
-    setCurrentPage(1);
+    setItemsPerPage(isMobile ? 6 : 12);
   }, [isMobile]);
 
+  useEffect(() => {
+    axios.get("/data/products.json").then((datafile) => {
+      setProducts(datafile.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
+  const changeCategory = (nextCategory) => {
+    if (nextCategory === selectedCategory) {
+      setCurrentPage(1);
+      return;
+    }
+
+    navigate(`/category/${nextCategory}`);
+  };
+
   const all = () => {
-    setSelect("all");
+    changeCategory("all");
   };
 
   const LBP = () => {
-    setSelect("LBP");
+    changeCategory("LBP");
   };
 
   const SFP = () => {
-    setSelect("SFP");
+    changeCategory("SFP");
   };
 
   const MFP = () => {
-    setSelect("MFP");
+    changeCategory("MFP");
+  };
+
+  const IR = () => {
+    changeCategory("IR");
   };
 
   const MiniPhotoPrinter = () => {
-    setSelect("MiniPhotoPrinter");
+    changeCategory("MiniPhotoPrinter");
   };
+
+  const getFilterClassName = (categoryName) =>
+    selectedCategory === categoryName ? styles.filterSelected : "";
 
   // 검색어 변경 이벤트 핸들러
   const handleSearchChange = (e) => {
@@ -76,10 +95,22 @@ const Categoryall = (props) => {
     }
 
     // 선택된 카테고리로 상품 필터링
-    if (select !== "all") {
+    if (selectedCategory !== "all") {
       filteredProducts = filteredProducts.filter(
-        (product) => product.category === select
+        (product) => product.category === selectedCategory
       );
+    }
+
+    if (selectedCategory === "all") {
+      filteredProducts = [...filteredProducts].sort((a, b) => {
+        const aPriority = priorityProductNames.indexOf(a.name);
+        const bPriority = priorityProductNames.indexOf(b.name);
+
+        if (aPriority === -1 && bPriority === -1) return 0;
+        if (aPriority === -1) return 1;
+        if (bPriority === -1) return -1;
+        return aPriority - bPriority;
+      });
     }
 
     return filteredProducts;
@@ -106,11 +137,12 @@ const Categoryall = (props) => {
             {/* 모바일일 때 */}
 
             <div className={styles.filter}>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={all}>전체</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={LBP}>LBP</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={SFP}>SFP</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MFP}>MFP</p>
-              <p style={{ justifyContent: "center", minWidth: '45px' }} onClick={MiniPhotoPrinter}>MPP</p>
+              <p className={getFilterClassName("all")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={all}>전체</p>
+              <p className={getFilterClassName("IR")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={IR}>IR</p>
+              <p className={getFilterClassName("LBP")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={LBP}>LBP</p>
+              <p className={getFilterClassName("SFP")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={SFP}>SFP</p>
+              <p className={getFilterClassName("MFP")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={MFP}>MFP</p>
+              <p className={getFilterClassName("MiniPhotoPrinter")} style={{ justifyContent: "center", minWidth: '45px' }} onClick={MiniPhotoPrinter}>MPP</p>
 
             </div>
             {/* 검색 입력 필드 */}
@@ -134,11 +166,12 @@ const Categoryall = (props) => {
           <>
             {/* PC환경 일 때 */}
             <div className={styles.filter}>
-              <p onClick={all}>전체보기</p>
-              <p onClick={LBP}>L B P</p>
-              <p onClick={SFP}>S F P</p>
-              <p onClick={MFP}>M F P</p>
-              <p onClick={MiniPhotoPrinter}>MiniPhotoPrinter</p>
+              <p className={getFilterClassName("all")} onClick={all}>전체보기</p>
+              <p className={getFilterClassName("IR")} onClick={IR}>I R</p>
+              <p className={getFilterClassName("LBP")} onClick={LBP}>L B P</p>
+              <p className={getFilterClassName("SFP")} onClick={SFP}>S F P</p>
+              <p className={getFilterClassName("MFP")} onClick={MFP}>M F P</p>
+              <p className={getFilterClassName("MiniPhotoPrinter")} onClick={MiniPhotoPrinter}>MiniPhotoPrinter</p>
             </div>
             {/* 검색 입력 필드 */}
             <div style={{ display: "flex", justifyContent: "center", maxWidth: "85%", margin: "0 auto" }}>

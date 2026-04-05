@@ -12,6 +12,14 @@
 
 .filter p {
   cursor: pointer;
+  color: #666666;
+  font-weight: 500;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.filter p.filterSelected {
+  color: #111111;
+  font-weight: 700;
 }
 
 .flex_wrap {
