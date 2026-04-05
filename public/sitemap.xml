@@ -17,7 +17,7 @@
       <lastmod>2023-07-14</lastmod>
    </url>
    <!-- Products 페이지 -->
-   <!-- 1번부터 32번까지의 상품 -->
+   <!-- 1번부터 34번까지의 상품 -->
    <url>
       <loc>https://www.cplussol.com/products/1</loc>
       <lastmod>2023-07-14</lastmod>
@@ -146,6 +146,14 @@
       <loc>https://www.cplussol.com/products/32</loc>
       <lastmod>2023-07-14</lastmod>
    </url>
+   <url>
+      <loc>https://www.cplussol.com/products/33</loc>
+      <lastmod>2026-04-05</lastmod>
+   </url>
+   <url>
+      <loc>https://www.cplussol.com/products/34</loc>
+      <lastmod>2026-04-05</lastmod>
+   </url>
    <!-- 카테고리 페이지 -->
    <url>
       <loc>https://www.cplussol.com/category/all</loc>
@@ -162,6 +170,10 @@
    <url>
       <loc>https://www.cplussol.com/category/MFP</loc>
       <lastmod>2023-07-14</lastmod>
+   </url>
+   <url>
+      <loc>https://www.cplussol.com/category/IR</loc>
+      <lastmod>2026-04-05</lastmod>
    </url>
    <url>
       <loc>https://www.cplussol.com/category/MiniPhotoPrinter</loc>

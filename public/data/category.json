@@ -3,6 +3,10 @@
     "img":"/images/logo/all.png" 
 },
     {
+    "category": "IR",
+    "img":"/images/products/iRC3326.jpg"
+},
+    {
     "category": "LBP",
     "img":"/images/products/LBP720Cx.jpg" 
 },

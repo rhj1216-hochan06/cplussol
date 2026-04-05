@@ -406,6 +406,34 @@
     "text5": "단방향 양면스캔 지원"
   },
   {
+    "id": "33",
+    "category": "MFP",
+    "name": "MAXIFY GX7192",
+    "img": "/images/products/MAXIFY GX7192.jpg",
+    "detailtype": "img",
+    "detail": "https://image.kr.canon/namo/binary/20250521103645340_5I6IHGBX.jpg",
+    "fromdate": "출시일 : 2025-04",
+    "text1": "4in1 (인쇄/복사/스캔/팩스) 비즈니스 복합기",
+    "text2": "최적화된 고속 출력 흑백 45ppm(24 ipm), 컬러 25ppm(15.5 ipm)",
+    "text3": "합리적인 출력비용 흑백 최대 27,000매, 컬러 최대 21,000매 출력가능",
+    "text4": "비즈니스 문서에 최적화된 대용량 4색 안료잉크 탑재",
+    "text5": "자동 양면인쇄, 최대 600매 적재 및 단방향 양면스캔 지원"
+  },
+  {
+    "id": "34",
+    "category": "IR",
+    "name": "iRC3326",
+    "img": "/images/products/iRC3326.jpg",
+    "detailtype": "img",
+    "detail": "http://image.kr.canon/namo/binary/20231116142410197_8HQ7IWZJ.jpg",
+    "fromdate": "출시일 : 2023-10 원산지 : 중국",
+    "text1": "분당 26/26매의 출력 속도 (A4흑백/컬러 기준)",
+    "text2": "분당 흑백 70매/컬러 70매 스캔 속도 (단면)",
+    "text3": "복사/프린트/스캔/팩스(옵션) 대응",
+    "text4": "7인치 LCD 터치 패널 채용",
+    "text5": ""
+  },
+  {
     "id": "30",
     "category": "MiniPhotoPrinter",
     "name": "SELPHY CP1500",
