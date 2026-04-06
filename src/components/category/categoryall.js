@@ -20,7 +20,7 @@ const Categoryall = (props) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const navigate = useNavigate();
   const selectedCategory = category || "all";
-  const priorityProductNames = ["iRC3326", "MAXIFY GX7192"];
+  const hotPriorityIds = ["33", "34", "14", "35", "36"];
 
   useEffect(() => {
     setItemsPerPage(isMobile ? 6 : 12);
@@ -72,6 +72,25 @@ const Categoryall = (props) => {
   const getFilterClassName = (categoryName) =>
     selectedCategory === categoryName ? styles.filterSelected : "";
 
+  const getHotPriority = (product) => {
+    const priority = hotPriorityIds.indexOf(product.id);
+    return priority === -1 ? Number.MAX_SAFE_INTEGER : priority;
+  };
+
+  const sortProducts = (a, b) => {
+    const aIsHot = Boolean(a.hot);
+    const bIsHot = Boolean(b.hot);
+
+    if (aIsHot && bIsHot) {
+      return getHotPriority(a) - getHotPriority(b);
+    }
+
+    if (aIsHot) return -1;
+    if (bIsHot) return 1;
+
+    return Number(a.id) - Number(b.id);
+  };
+
   // 검색어 변경 이벤트 핸들러
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
@@ -101,19 +120,7 @@ const Categoryall = (props) => {
       );
     }
 
-    if (selectedCategory === "all") {
-      filteredProducts = [...filteredProducts].sort((a, b) => {
-        const aPriority = priorityProductNames.indexOf(a.name);
-        const bPriority = priorityProductNames.indexOf(b.name);
-
-        if (aPriority === -1 && bPriority === -1) return 0;
-        if (aPriority === -1) return 1;
-        if (bPriority === -1) return -1;
-        return aPriority - bPriority;
-      });
-    }
-
-    return filteredProducts;
+    return [...filteredProducts].sort(sortProducts);
   };
 
   // 페이징된 상품 목록을 반환하는 함수
@@ -199,6 +206,7 @@ const Categoryall = (props) => {
                 <div class="item" data-aos="slide-up">
                   <Link to={`/products/${product.id}`}>
                     <div className={styles.product_image}>
+                      {product.hot && <span className={styles.hotBadge}>HOT</span>}
                       <img src={product.img} alt="product" />
                     </div>
                   </Link>

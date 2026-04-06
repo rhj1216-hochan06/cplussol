@@ -184,6 +184,7 @@
   {
     "id": "14",
     "category": "MFP",
+    "hot": true,
     "name": "PIXMA G3915",
     "img": "/images/products/PIXMA G3915.jpg",
     "detailtype": "img",
@@ -450,6 +451,7 @@
   {
     "id": "33",
     "category": "MFP",
+    "hot": true,
     "name": "MAXIFY GX7192",
     "img": "/images/products/MAXIFY GX7192.jpg",
     "detailtype": "img",
@@ -464,6 +466,7 @@
   {
     "id": "34",
     "category": "IR",
+    "hot": true,
     "name": "iRC3326",
     "img": "/images/products/iRC3326.jpg",
     "detailtype": "img",
@@ -478,6 +481,7 @@
   {
     "id": "35",
     "category": "MFP",
+    "hot": true,
     "name": "MF274dn",
     "img": "/images/products/MF274dn.jpg",
     "detailtype": "img",
@@ -492,6 +496,7 @@
   {
     "id": "36",
     "category": "LBP",
+    "hot": true,
     "name": "Cartridge 039",
     "img": "/images/products/Cartridge039.jpg",
     "detailtype": "html",
