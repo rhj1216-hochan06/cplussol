@@ -15,6 +15,7 @@ import PIXMA_E4590 from "../components/detail/PIXMA E4590";
 import PIXMA_G2910 from "../components/detail/PIXMA G2910";
 import PIXMA_G2915 from "../components/detail/PIXMA G2915";
 import PIXMA_MG2490 from "../components/detail/PIXMA MG2490";
+import Cartridge039 from "../components/detail/Cartridge 039";
 import RP_108 from "../components/detail/RP-108";
 import SELPHY_CP1500 from "../components/detail/SELPHY CP1500";
 import SELPHY_SQUARE_QX10 from "../components/detail/SELPHY SQUARE QX10";
@@ -137,6 +138,9 @@ export default function DetailPage() {
                 }
                 else if (product.name === "PIXMA MG2490") {
                   return <PIXMA_MG2490></PIXMA_MG2490>
+                }
+                else if (product.name === "Cartridge 039") {
+                  return <Cartridge039></Cartridge039>
                 }
                 else if (product.name === "RP-108") {
                   return <RP_108></RP_108>
